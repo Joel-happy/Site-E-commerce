@@ -9,9 +9,13 @@ module.exports = {
                     end: '#0575E6',
                     angle: '106.92deg',
                 },
-            }
+            },
+            backgroundImage: {
+                'logo': "url('/src/assets/img/Logo.png')",
+                'logo1': "url('/src/assets/img/Logo1.png')",
+                'logo2': "url('/src/assets/img/Logo2.png')"
+            },
         },
     },
     plugins: [],
 }
-
