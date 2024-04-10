@@ -1,9 +1,8 @@
-const User = require('../models/classes');
+// const User = require('../models/classes');
 const {PrismaClient} = require('@prisma/client')
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
 const jwt = require('jsonwebtoken');
-
 // Création d'une instance PrismaClient
 const prisma = new PrismaClient();
 
@@ -58,7 +57,9 @@ exports.createUser = async (req, res) => {
 
         });
         // Réponse de succès avec le nouvel utilisateur créé
+
         res.status(201).json("Nouvel utilisateur créé");
+
     } catch
         (error) {
         // Gestion des erreurs
@@ -147,5 +148,39 @@ exports.deleteUser = async (req, res) => {
 };
 
 exports.logUser = async (req, res) => {
+   try {
+        // Extraire les informations d'identification de la requête
+        const { email, motDePasse } = req.body;
 
+        // Vérifier si l'utilisateur existe dans la base de données
+        const user = await prisma.client.findUnique({
+            where: {
+                AddresseMail: email
+            }
+        });
+
+        // Si l'utilisateur n'existe pas, renvoyer une erreur
+        if (!user) {
+            return res.status(404).json({ error: "L'utilisateur avec cet email n'existe pas." });
+        }
+
+        // Vérifier si le mot de passe est correct en le comparant avec le hash stocké
+        const passwordMatch = await bcrypt.compare(motDePasse, user.MotDePasse
+);console.log(passwordMatch)
+console.log(motDePasse,user.MotDePasse);
+        // Si le mot de passe ne correspond pas, renvoyer une erreur
+        if (!passwordMatch) {
+            return res.status(401).json({ error: "Mot de passe incorrect." });
+        }
+        // Générer un token JWT avec l'ID de l'utilisateur
+        const token = jwt.sign({ userId: user.IdClient,email:user.AddresseMail }, process.env.JWT_SECRET, { expiresIn: '1h' });
+
+        // Répondre avec le token JWT
+        res.status(200).json({ token });
+    } catch (error) {
+        // Gérer les erreurs
+        console.error("Erreur lors de l'authentification de l'utilisateur:", error);
+        res.status(500).json({ error: 'Internal Server Error' });
+    }
 }
+

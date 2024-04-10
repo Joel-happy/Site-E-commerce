@@ -33,12 +33,13 @@ model choisit {
 model client {
   IdClient          Int     @id @default(autoincrement())
   Nom               String  @db.VarChar(50)
-  Prenom            String  @db.VarChar(50)
+  Prenom            String  @db.VarChar(100)
   AddresseMail      String  @unique @db.VarChar(20)
-  MotDePasse        String  @db.VarChar(50)
+  MotDePasse        String  @db.VarChar(500)
   DateDeNaissance   String? @db.Text
   NumeroDeTelephone String  @unique @db.VarChar(10)
   Anciennete        String? @db.Text
+  role              Int
 }
 
 model commande {
@@ -76,7 +77,7 @@ model methodedepaiement {
 }
 
 model motos {
-  IdMoto               Int     @id
+  IdMoto               Int     @id @default(autoincrement())
   NomMoto              String  @db.VarChar(50)
   Constructeur         String  @db.VarChar(30)
   Modele               String  @db.VarChar(30)
