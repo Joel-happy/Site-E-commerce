@@ -43,12 +43,13 @@ body {
 }
 
 .nav-link.btn:hover {
-  background-color: #fff;
+  background-color: white;
   border-radius: 20px;
   color: black !important;
   padding: 5px 20px;
   transition: background-color 0.3s ease;
 }
+
 .nav-link:hover {
   color: black;
 }
@@ -95,39 +96,49 @@ h1 {
 }
 
 .carousel-controls {
-  /* margin-top: 2em; */
   display: flex;
 }
 
-.carousel-controls .btn {
+.coter {
   font-size: 2em;
-  color: #000;
+  color: #fff;
   background-color: transparent;
   border: none;
   transition: color 0.3s ease;
 }
 
-.carousel-controls .btn:hover {
-  color: #555;
-}
-
-/* Bootstrap overrides */
 .container {
-  max-width: 960px; /*largeur */
+  max-width: 960px;
 }
 
 .row {
-  align-items: center; /* Centre vertical colonnes */
+  align-items: center;
 }
 
-/* Style pour l'image de la moto */
 .img-fluid {
-  max-width: 100%; /* Pour s'assurer que l'image est responsive */
+  max-width: 110%;
   height: auto;
 }
 
+.coter {
+  color: white;
+  text-decoration: none;
+}
+
+.coter :hover {
+  color: white;
+  text-decoration: none;
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+a {
+  color: white !important;
+}
 @media (max-width: 768px) {
-  /* pour les écrans plus petits */
   .nav-link.btn {
     display: block;
     margin-top: 10px;

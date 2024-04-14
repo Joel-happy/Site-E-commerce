@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Boutique - Prestige</title>
+    <link href="/assets/css/shop.css" rel="stylesheet" />
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+
+<body>
+  <header>
+    <nav class="navbar">
+      <img
+        class="logo"
+        src="/assets/img/icon/Multi-logo.png"
+        alt="Logo Y’Cross"
+        class="logo"
+      />
+      <div class="right-menu">
+        <a class="nav-link" href="/assets/html/shop.html">Shop</a>
+        <a class="nav-link" href="/assets/html/about.html">À Propos</a>
+        <a class="nav-link" href="/assets/html/cart.html">Panier</a>
+        <a class="nav-link" href="/assets/html/contact.html"
+          >Nous contacter</a
+        >
+        <a
+          class="nav-link btn btn-dark text-white"
+          href="/assets/html/login/connexion.html"
+          >Connexion</a
+        >
+      </div>
+    </nav>
+  </header>
+    <nav class="navbar navbar-expand-sm navbar-light bg-light">
+        <div class="container">
+            <div class="collapse navbar-collapse" id="collapsibleNavId">Catégorie :
+                <form action="" method="get">
+                    <label for="category">Categorie 2 Temps</label>
+                    <input type="checkbox" name="category[]" value="Category1">
+                    <br>
+                    <label for="category">Categorie 4 Temps</label>
+                    <input type="checkbox" name="category[]" value="Category2">
+                    <br>
+                    <input class="form-control me-sm-2" type="text" name="search" placeholder="Search" />
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+                        Chercher
+                    </button>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+
+    <div class="container">
+        <main>
+            <div class="watch">
+                <img src="/assets/img/moto/2024-yamaha-yz250Blue.png" alt="Yz 250" class="watch-image" />
+                <h2><a href="">Yz 250</a></h2>
+                <h6>
+                  2 Temps  2024 50th Anniversary Edition
+                </h3>
+                <p>
+                  La YZ 250 est une moto de cross réputée pour sa puissance et sa maniabilité. Avec un moteur deux temps et un châssis léger, elle offre une expérience de conduite agile et performante, idéale pour les amateurs de tout-terrain.                </p>
+                <div class="price">
+                    8 600 €
+                </div>
+                <form action="../product/add_to_cart.php" method="POST" id="add_to_cart">
+                    <input type="text" name="product-id" value="1" hidden>
+                    <input type="text" name="product-name" value="Product Name 1" hidden>
+                    <input type="number" name="cart-quantity" value="1" hidden>
+                </form>
+                <input type="submit" class="btn btn-primary" form="add_to_cart" value="Acheter" />
+
+                <br>
+            </div>
+
+            <div class="watch">
+              <img src="/assets/img/moto/Crf450.png" alt="Crf450" class="watch-image" />
+              <h2><a href="">Crf 450</a></h2>
+              <h6>
+                4 Temps 2024
+              </h3>
+              <p>
+                Le CRF 450 2024 est une moto de cross de pointe, alliant puissance, maniabilité et technologie de pointe. Conçu pour dominer les pistes tout-terrain, il offre une conduite précise et des performances exceptionnelles, idéal pour les compétiteurs sérieux et les amateurs de moto-cross.
+                <div class="price">
+                  10 349 €
+                </div>
+              <form action="../product/add_to_cart.php" method="POST" id="add_to_cart">
+                  <input type="text" name="product-id" value="1" hidden>
+                  <input type="text" name="product-name" value="Product Name 1" hidden>
+                  <input type="number" name="cart-quantity" value="1" hidden>
+              </form>
+              <input type="submit" class="btn btn-primary" form="add_to_cart" value="Acheter" />
+
+              <br>
+          </div>
+
+          <div class="watch">
+            <img src="/assets/img/moto/KTM-250-EXC-2017-700px (1).png" alt="Crf450" class="watch-image" />
+            <h2><a href="">Ktm 250 exc</a></h2>
+            <h6>
+              2 Temps 2017
+            </h3>
+            <p>
+              La KTM 250 EXC est une moto d'enduro réputée pour sa puissance et sa maniabilité. Avec son moteur deux temps et son châssis léger, elle offre une expérience de conduite dynamique sur tous les terrains.              <div class="price">
+                <div class="price">
+                4 200 €
+              </div>
+            <form action="../product/add_to_cart.php" method="POST" id="add_to_cart">
+                <input type="text" name="product-id" value="1" hidden>
+                <input type="text" name="product-name" value="Product Name 1" hidden>
+                <input type="number" name="cart-quantity" value="1" hidden>
+            </form>
+            <input type="submit" class="btn btn-primary" form="add_to_cart" value="Acheter" />
+
+            <br>
+        </div>
+
+        <div class="watch">
+          <img src="/assets/img/moto/RmzJaune (1).png" alt="Rmz" class="watch-image" />
+          <h2><a href="">Rmz 450 2019</a></h2>
+          <h6>
+            4 Temps 2019
+          </h3>
+          <p>
+            La RMZ 450 2019 : une moto de motocross de qualité supérieure, puissante et polyvalente, idéale pour les amateurs de motocross à la recherche de performances exceptionnelles sur piste.
+            <div class="price">
+              5 800 €
+            </div>
+          <form action="../product/add_to_cart.php" method="POST" id="add_to_cart">
+              <input type="text" name="product-id" value="1" hidden>
+              <input type="text" name="product-name" value="Product Name 1" hidden>
+              <input type="number" name="cart-quantity" value="1" hidden>
+          </form>
+          <input type="submit" class="btn btn-primary" form="add_to_cart" value="Acheter" />
+
+          <br>
+      </div>
+
+
+      <div class="watch">
+        <img src="/assets/img/moto/YzEditionMonsterBlack.png" alt="Yz 125 Monster" class="watch-image" />
+        <h2><a href="">Yz 125 2024</a></h2>
+        <h6>
+          2 Temps 2024 Monster Energy Edition
+        </h3>
+        <p>
+          La YZ 125 Monster Edition 2024 : une moto de cross emblématique, dotée de l'esprit Monster Energy. Puissante et agile, elle incarne le dynamisme et la performance sur les pistes, parfaitement adaptée aux passionnés de motocross.
+          <div class="price">
+            8 600 €
+          </div>
+        <form action="../product/add_to_cart.php" method="POST" id="add_to_cart">
+            <input type="text" name="product-id" value="1" hidden>
+            <input type="text" name="product-name" value="Product Name 1" hidden>
+            <input type="number" name="cart-quantity" value="1" hidden>
+        </form>
+        <input type="submit" class="btn btn-primary" form="add_to_cart" value="Acheter" />
+
+        <br>
+    </div>
+
+    <div class="watch">
+      <img src="/assets/img/moto/KXF_Vert.png" alt="KXF 250" class="watch-image" />
+      <h2><a href="">KXF 250 2024</a></h2>
+      <h6>
+        4 Temps 2024 
+      </h3>
+      <p>
+        Le KXF 250 : une moto de motocross agile et puissante, offrant des performances exceptionnelles sur les pistes. Parfaitement équilibrée et maniable, elle incarne la passion pour le motocross et l'adrénaline de la compétition.
+        <div class="price">
+          8 200 €
+        </div>
+      <form action="../product/add_to_cart.php" method="POST" id="add_to_cart">
+          <input type="text" name="product-id" value="1" hidden>
+          <input type="text" name="product-name" value="Product Name 1" hidden>
+          <input type="number" name="cart-quantity" value="1" hidden>
+      </form>
+      <input type="submit" class="btn btn-primary" form="add_to_cart" value="Acheter" />
+
+      <br>
+  </div>
+
+        </main>
+    </div>
+
+    <footer class="footer">
+      <div class="container">
+          <div class="row">
+              <div class="col-md-6">
+                  <h5>Y'Cross - Boutique de vente de moto cross</h5>
+                  <a href="https://www.ynov.com/campus/paris">À Paris Ynov Campus</a>
+              </div>
+              <div class="col-md-6">
+                  <h5>Contact</h5>
+                  <p>Adresse : 12 Rue du scam, 75019 Paris</p>
+                  <p>Téléphone : +33 1 23 45 67 89</p>
+                  <p>Email : contact@ycross.com</p>
+              </div>
+          </div>
+      </div>
+  </footer>
+  
+</body>
+
+</html>
