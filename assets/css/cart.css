@@ -36,7 +36,7 @@
   }
   
   .nav-link.btn {
-	background-color: #000;
+	background-color: #007BFF;
 	border-radius: 20px;
 	color: white;
 	padding: 5px 20px;
@@ -44,9 +44,9 @@
   }
   
   .nav-link.btn:hover {
-	background-color: #fff;
+	background-color: black;
 	border-radius: 20px;
-	color: black !important;
+	color: #fff !important;
 	padding: 5px 20px;
 	transition: background-color 0.3s ease;
   }
@@ -286,4 +286,37 @@
 		padding: 4px 10px;
 		text-align: center; 
 	}
+}
+
+
+.footer {
+    background-color: #333; /* Couleur de fond du footer */
+    color: #fff; /* Couleur du texte */
+    padding: 50px 0; /* Espacement intérieur du footer */
+}
+
+.footer h3 {
+    color: #fff; /* Couleur du titre */
+}
+
+.footer p {
+    font-size: 16px; /* Taille de la police du texte */
+    line-height: 1.6; /* Espacement entre les lignes */
+}
+
+.footer a {
+    color: #fff; /* Couleur des liens */
+}
+
+.footer a:hover {
+    color: #f0f0f0; /* Couleur des liens au survol */
+}
+
+.footer .container {
+    max-width: 960px; /* Largeur maximale du contenu du footer */
+    margin: 0 auto; /* Centrage du contenu */
+}
+
+.footer .row {
+    margin-bottom: 20px; /* Espacement entre les lignes du contenu */
 }

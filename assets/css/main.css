@@ -1,0 +1,12 @@
+body{
+    font-family: "Open Sans", sans-serif;
+    background: linear-gradient(to bottom, #000000, #614bee);
+    color: #fff;
+}
+
+.title{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+

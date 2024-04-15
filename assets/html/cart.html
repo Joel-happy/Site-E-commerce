@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/assets/css/cart.css">
+    <title>Cart</title>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+         <a href="/index.html"> <img
+            class="logo"
+            src="/assets/img/icon/Y'cross-Violet.png"
+            alt="Logo Y’Cross"
+            class="logo"
+          /></a>
+          <div class="right-menu">
+            <a class="nav-link" href="/assets/html/shop.html">Shop</a>
+            <a class="nav-link" href="/assets/html/about.html">À Propos</a>
+            <a class="nav-link" href="/assets/html/cart.html">Panier</a>
+            <a class="nav-link" href="/assets/html/contact.html"
+              >Nous contacter</a
+            >
+            <a
+              class="nav-link btn btn-dark text-white"
+              href="/assets/html/login/connexion.html"
+              >Connexion</a
+            >
+          </div>
+        </nav>
+      </header>
+            <div class="product-list">
+
+                <body>
+                    <main class="page">
+                        <section class="shopping-cart dark">
+                            <div class="container">
+                                <div class="block-heading">
+                                    <h2>Panier</h2>
+                                </div>
+                                <div class="content">
+                                    <div class="row">
+                                        <div class="col-md-12 col-lg-8">
+                                            <div class="items">
+                                                
+                                                    <div class="product">
+                                                        <div class="row">
+                                                            <div class="col-md-3">
+                                                                <img class="img-fluid mx-auto d-block image" src="<?= $src ?>">
+                                                            </div>
+                                                            <div class="col-md-8">
+                                                                <div class="info">
+                                                                    <div class="row">
+                                                                        <div class="col-md-5 product-name">
+                                                                            <div class="product-name">
+                                                                                <a href="#">
+                                                                                    <?= $product_item['Name'] ?>
+                                                                                </a>
+                                                                                <div class="product-info">
+                                                                                    description
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-md-4 quantity">
+                                                                            <label for="quantity">Quantity:</label>
+                                                                            <input id="quantity" type="number"
+                                                                                value="<?= $produit['Quantity'] ?>"
+                                                                                class="form-control quantity-input" disabled>
+                                                                        </div>
+                                                                        <div class="col-md-3 price">
+                                                                            
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                  
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 col-lg-4">
+                                            <div class="summary">
+                                                <h3>Résumé</h3>
+                                                <div class="summary-item"><span class="text">Sous-total</span><span class="price">
+                                                        <?= $cartId["TotalPrice"] ?>€
+                                                    </span></div>
+                                                <div class="summary-item"><span class="text">Remise </span><span
+                                                        class="price">0€</span></div>
+                                                <div class="summary-item"><span class="text">Livraison</span><span
+                                                        class="price">5€</span></div>
+                                                <div class="summary-item"><span class="text">Total</span><span class="price">
+                                                        <?= $cartId["TotalPrice"] + 5 ?>€
+                                                    </span></div>
+                                                <button type="button" class="btn btn-primary btn-lg btn-block"
+                                                    onclick="window.location.href='checkout';">Paiement</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </main>
+                </body>
+                <footer class="footer">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h3>Y'Cross</h3>
+                                <p>Boutique de vente de moto cross</p>
+                                <p>Contact : contact@ycross.com</p>
+                            </div>
+                            <div class="col-md-6">
+                                <h3>Adresse</h3>
+                                <p>Y'Cross</p>
+                                <p>Ynov Campus Paris</p>
+                                <p>12 rue du Scam Nanterre 92000</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <p class="text-center">© 2024 Y'Cross. Tous droits réservés.</p>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+                
+</body>
+
+</html>
