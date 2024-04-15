@@ -10,19 +10,35 @@ const prisma = new PrismaClient();
 // Contrôleurs pour les utilisateurs
 exports.createUser = async (req, res) => {
     try {
+// Fonction pour vérifier si tous les champs pour l'adresse sont renseignés
+function validateAddress(address) {
+    return (
+        address &&
+        address.AdresseDeFacturation &&
+        address.AdresseDeLivraison &&
+        address.NomDuDestinataire &&
+        address.Adresse &&
+        address.Ville &&
+        address.NumeroDeTelephone &&
+        address.CodePostal &&
+        address.Pays
+    );
+}
 
+// Fonction pour vérifier si tous les champs pour le client et son adresse sont renseignés
+function validateClientData(clientData) {
+    return (
+        clientData &&
+        clientData.Nom &&
+        clientData.Prenom &&
+        clientData.AddresseMail &&
+        clientData.MotDePasse &&
+        validateAddress(clientData.Adresse)
+    );
+}
         // Logique pour créer un nouvel utilisateur
-        const {nom, prenom, email, motDePasse, dateDeNaissance, numeroDeTelephone} = req.body;
-        if (!nom || !prenom || !email || !motDePasse || !dateDeNaissance || !numeroDeTelephone) {
-            let champsManquants = [];
-            if (!nom) champsManquants.push('Nom');
-            if (!prenom) champsManquants.push('Prenom');
-            if (!email) champsManquants.push('AddresseMail');
-            if (!motDePasse) champsManquants.push('MotDePasse');
-            if (!dateDeNaissance) champsManquants.push('DateDeNaissance');
-            if (!numeroDeTelephone) champsManquants.push('NumeroDeTelephone');
-
-            return res.status(400).json({ error: `Les champs suivants sont obligatoires : ${champsManquants.join(', ')}` });
+      if (!validateClientData(clientData)) {
+            return res.status(400).json({ error: 'Les données du client ou de son adresse sont incomplètes.' });
         }
         // Vérifier si l'email existe déjà
 
@@ -52,11 +68,19 @@ exports.createUser = async (req, res) => {
                 MotDePasse: hashedPassword,
                 DateDeNaissance: dateDeNaissance,
                 NumeroDeTelephone: numeroDeTelephone,
-                Anciennete: anciennete
+                Anciennete: anciennete,
+                role:1
             }
 
         });
         // Réponse de succès avec le nouvel utilisateur créé
+        // Créer l'adresse associée au client dans la base de données avec Prisma
+        const newAddress = await prisma.adresse.create({
+    data: {
+        ...adresse,
+        IdClient: newUser.IdClient
+    }
+});
 
         res.status(201).json("Nouvel utilisateur créé");
 

@@ -48,10 +48,12 @@ model commande {
   StatusDeLaCommande String   @db.VarChar(15)
   IdAdresse          Int
   IdClient           Int
+  motos              MotosSurCommande[]
 
   @@index([IdAdresse], map: "IdAdresse")
   @@index([IdClient], map: "IdClient")
 }
+
 
 model facture {
   IdFactures        Int      @id
@@ -84,6 +86,16 @@ model motos {
   DescriptionDuProduit String  @db.VarChar(200)
   Prix                 Decimal @db.Decimal(10, 2)
   Stock                Int
+  commandes              MotosSurCommande[]
+}
+
+model MotosSurCommande {
+  commande   commande  @relation(fields: [commandeId], references: [IdCommandes])
+  commandeId Int       // champ scalaire de relation (utilisé dans l'attribut `@relation` ci-dessus)
+  moto       motos    @relation(fields: [motoId], references: [IdMoto])
+  motoId     Int       // champ scalaire de relation (utilisé dans l'attribut `@relation` ci-dessus)
+
+  @@id([commandeId, motoId])
 }
 
 model panier {
