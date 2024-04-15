@@ -2,130 +2,131 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-  }
-  
-  body {
+}
+
+body {
     background: linear-gradient(to right, green, black);
     font-family: "Open Sans", sans-serif;
     color: red;
-  }
-  
-  .logo {
+}
+
+.logo {
     max-height: 160px;
-  }
-  
-  .nav {
+}
+
+.nav {
     margin-bottom: 2px;
     justify-content: flex-end;
-  }
-  
-  .right-menu {
+}
+
+.right-menu {
     display: flex;
-  }
-  
-  .nav-link {
+}
+
+.nav-link {
     color: #fff;
     font-size: 1.1em;
-  }
-  
-  .nav-link.active {
+}
+
+.nav-link.active {
     padding-bottom: 5px;
     border: 1px white solid;
     border-radius: 5px;
-  }
-  
-  .nav-link.btn {
+}
+
+.nav-link.btn {
     background-color: #000;
     border-radius: 20px;
     color: white;
     padding: 5px 20px;
     transition: background-color 0.3s ease;
-  }
-  
-  .nav-link.btn:hover {
+}
+
+.nav-link.btn:hover {
     background-color: green;
     border-radius: 20px;
     color: white !important;
     padding: 5px 20px;
     transition: background-color 0.3s ease;
-  }
-  
-  .nav-link:hover {
+}
+
+.nav-link:hover {
     color: black;
-  }
-  
-  .col-md-6 {
+}
+
+.col-md-6 {
     flex: wrap;
-  }
-  
-  main {
+}
+
+main {
     padding: 2em 0;
     margin-bottom: 0rem !important;
-  }
-  
-  h1 {
+}
+
+h1 {
     margin-bottom: 0.5em;
     color: #fff;
-  }
-  
-  .tagline {
+}
+
+.tagline {
     font-size: 1.5em;
     margin-bottom: 1em;
     color: lightgrey;
     font-weight: bold;
-  }
-  
-  .Bienvenue {
+}
+
+.Bienvenue {
     color: #fff;
-  }
-  
-  .price-tag {
+}
+
+.price-tag {
     font-size: 2.5em;
     font-weight: bold;
     margin-bottom: 1em;
     color: #fff;
-  }
-  
-  .pb-5,
-  .py-5 {
+}
+
+.pb-5,
+.py-5 {
     padding-bottom: 0px !important;
-  }
-  .pt-5,
-  .py-5 {
+}
+
+.pt-5,
+.py-5 {
     padding-top: 0px !important;
-  }
-  
-  .carousel-controls {
+}
+
+.carousel-controls {
     display: flex;
-  }
-  
-  .coter {
+}
+
+.coter {
     font-size: 2em;
     color: #fff;
     background-color: transparent;
     border: none;
     transition: color 0.3s ease;
-  }
-  
-  .container {
+}
+
+.container {
     max-width: 960px;
-  }
-  
-  .row {
+}
+
+.row {
     align-items: center;
-  }
-  
-  .img-fluid {
+}
+
+.img-fluid {
     max-width: 110%;
     height: auto;
-  }
-  
-  .coter {
+}
+
+.coter {
     color: white;
     text-decoration: none;
-  }
-  
-  .coter :hover {
+}
+
+.coter :hover {
     color: white;
     text-decoration: none;
     background: rgba(255, 255, 255, 0.25);
@@ -134,19 +135,21 @@
     -webkit-backdrop-filter: blur(4px);
     border-radius: 10px;
     border: 1px solid rgba(255, 255, 255, 0.18);
-  }
-  a {
+}
+
+a {
     color: white !important;
-  }
-  @media (max-width: 768px) {
+}
+
+@media (max-width: 768px) {
     .nav-link.btn {
-      display: block;
-      margin-top: 10px;
+        display: block;
+        margin-top: 10px;
     }
-  
+
     .carousel-controls {
-      display: flex;
-      justify-content: center;
+        display: flex;
+        justify-content: center;
     }
-  }
+}
   

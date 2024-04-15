@@ -1,0 +1,115 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model adresse {
+  IdAdresse            Int    @id
+  AdresseDeFacturation String @db.VarChar(30)
+  AdresseDeLivraison   String @db.VarChar(30)
+  NomDuDestinataire    String @db.VarChar(50)
+  Adresse              String @db.VarChar(50)
+  Ville                String @db.VarChar(20)
+  NumeroDeTelephone    String @db.VarChar(16)
+  CodePostal           String @db.VarChar(5)
+  Pays                 String @db.VarChar(50)
+  IdClient             Int
+
+  @@index([IdClient], map: "IdClient")
+}
+
+model choisit {
+  IdClient Int
+  IdMoto   Int
+
+  @@id([IdClient, IdMoto])
+  @@index([IdMoto], map: "IdMoto")
+}
+
+model client {
+  IdClient          Int     @id @default(autoincrement())
+  Nom               String  @db.VarChar(50)
+  Prenom            String  @db.VarChar(100)
+  AddresseMail      String  @unique @db.VarChar(20)
+  MotDePasse        String  @db.VarChar(500)
+  DateDeNaissance   String? @db.Text
+  NumeroDeTelephone String  @unique @db.VarChar(10)
+  Anciennete        String? @db.Text
+  role              Int
+}
+
+model commande {
+  IdCommandes        Int      @id
+  DatedeCommande     DateTime @db.DateTime(0)
+  StatusDeLaCommande String   @db.VarChar(15)
+  IdAdresse          Int
+  IdClient           Int
+  motos              MotosSurCommande[]
+
+  @@index([IdAdresse], map: "IdAdresse")
+  @@index([IdClient], map: "IdClient")
+}
+
+
+model facture {
+  IdFactures        Int      @id
+  DatedeFacturation DateTime @db.DateTime(0)
+  MontantTotal      Decimal  @db.Decimal(10, 2)
+  IdClient          Int
+
+  @@index([IdClient], map: "IdClient")
+}
+
+model inclut {
+  IdMoto      Int
+  IdCommandes Int
+
+  @@id([IdMoto, IdCommandes])
+  @@index([IdCommandes], map: "IdCommandes")
+}
+
+model methodedepaiement {
+  IdPaiement             Int    @id
+  TypePaiement           String @db.VarChar(20)
+  InformationsDePaiement String @db.VarChar(100)
+}
+
+model motos {
+  IdMoto               Int     @id @default(autoincrement())
+  NomMoto              String  @db.VarChar(50)
+  Constructeur         String  @db.VarChar(30)
+  Modele               String  @db.VarChar(30)
+  DescriptionDuProduit String  @db.VarChar(200)
+  Prix                 Decimal @db.Decimal(10, 2)
+  Stock                Int
+  commandes              MotosSurCommande[]
+}
+
+model MotosSurCommande {
+  commande   commande  @relation(fields: [commandeId], references: [IdCommandes])
+  commandeId Int       // champ scalaire de relation (utilisé dans l'attribut `@relation` ci-dessus)
+  moto       motos    @relation(fields: [motoId], references: [IdMoto])
+  motoId     Int       // champ scalaire de relation (utilisé dans l'attribut `@relation` ci-dessus)
+
+  @@id([commandeId, motoId])
+}
+
+model panier {
+  IdPanier Int    @id
+  Quantite BigInt
+  IdClient Int
+
+  @@index([IdClient], map: "IdClient")
+}
+
+model utilise {
+  IdPaiement Int
+  IdClient   Int
+
+  @@id([IdPaiement, IdClient])
+  @@index([IdClient], map: "IdClient")
+}
