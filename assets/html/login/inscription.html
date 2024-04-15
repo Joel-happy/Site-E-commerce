@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Inscription - Y'Cross</title>
+    <link href="/assets/css/login/inscription.css" rel="stylesheet" />
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <nav class="navbar">
+          <a href="/index.html">
+            <img
+              class="logo"
+              src="/assets/img/icon/gold-ycross.png"
+              alt="Logo Y’Cross"
+              class="logo"
+          /></a>
+          <div class="right-menu">
+            <a class="nav-link" href="/assets/html/shop.html">Shop</a>
+            <a class="nav-link" href="/assets/html/about.html">À Propos</a>
+            <a class="nav-link" href="/assets/html/cart.html">Panier</a>
+            <a class="nav-link" href="/assets/html/contact.html"
+              >Nous contacter</a
+            >
+            <a
+              class="nav-link btn btn-dark text-white"
+              href="/assets/html/login/connexion.html"
+              >Connexion</a
+            >
+          </div>
+        </nav>
+      </header>
+      <div class="register-container">
+        <div class="register-form">
+          <h1>Inscription</h1>
+          <p class="welcome">Rejoignez-nous dès maintenant !</p>
+          <form>
+            <label for="fullname"
+              ><img class="px" src="/assets/img/icon/user-icon.png" alt="" />
+              Nom complet</label
+            >
+            <input type="text" id="fullname" name="fullname" required />
+            <label for="email"
+              ><img class="px" src="/assets/img/icon/user-icon.png" alt="" />
+              Adresse email</label
+            >
+            <input type="email" id="email" name="email" required />
+            <label for="password"
+              ><img class="px" src="/assets/img/icon/padlock-icon.png" alt="" />
+              Mot de passe</label
+            >
+            <input type="password" id="password" name="password" required />
+            <label for="confirm_password"
+              ><img class="px" src="/assets/img/icon/padlock-icon.png" alt="" />
+              Confirmer le mot de passe</label
+            >
+            <input
+              type="password"
+              id="confirm_password"
+              name="confirm_password"
+              required
+            />
+            <button type="submit" class="btn-gradient">S'inscrire</button>
+          </form>
+        </div>
+        <div class="register-description">
+          <p>
+            Connectez-vous pour plonger dans l'action. Chez Y'Cross,
+            l'équipement de moto-cross de qualité est à portée de clic. Pilote
+            pro ou novice, trouvez tout ici.
+          </p>
+        </div>
+      </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  </body>
+</html>
