@@ -1,4 +1,5 @@
 const {PrismaClient} = require('@prisma/client');
+const {data} = require("autoprefixer");
 
 const prisma = new PrismaClient();
 
@@ -15,16 +16,14 @@ exports.createCommand = async (req, res) => {
         }
 
         // Déterminer le statut de la commande en fonction de la taille de la liste de motos
-        const statusDeLaCommande = motos.length > 3 ? 'en cours de livraison' : 'livré';
 
         // Récupérer la date de la commande
-        const dateDeCommande = new Date();
 
         // Créer la commande dans la base de données avec Prisma
         const newCommand = await prisma.commande.create({
             data: {
-                DatedeCommande: dateDeCommande,
-                StatusDeLaCommande: statusDeLaCommande,
+                DatedeCommande:  new Date(),
+                StatusDeLaCommande: "livré",
                 //IdAdresse: /* Ajouter l'IdAdresse correspondant */,
                 IdClient,
                 motos: {
@@ -32,7 +31,7 @@ exports.createCommand = async (req, res) => {
                 }
             }
         });
-
+console.log(data)
         // Répondre avec la nouvelle commande créée
         res.status(201).json(newCommand);
     } catch (error) {
