@@ -10,39 +10,25 @@ const prisma = new PrismaClient();
 // Contrôleurs pour les utilisateurs
 exports.createUser = async (req, res) => {
     try {
-// Fonction pour vérifier si tous les champs pour l'adresse sont renseignés
-        function validateAddress(address) {
-            return (
-                address &&
-                address.AdresseDeFacturation &&
-                address.AdresseDeLivraison &&
-                address.NomDuDestinataire &&
-                address.Adresse &&
-                address.Ville &&
-                address.NumeroDeTelephone &&
-                address.CodePostal &&
-                address.Pays
-            );
-        }
+        const {nom, prenom, email, motDePasse, dateDeNaissance, numeroDeTelephone, adresse} = req.body;
 
-// Fonction pour vérifier si tous les champs pour le client et son adresse sont renseignés
+        // Fonction pour vérifier si tous les champs pour le client sont renseignés
         function validateClientData(clientData) {
             return (
                 clientData &&
                 clientData.Nom &&
                 clientData.Prenom &&
                 clientData.AddresseMail &&
-                clientData.MotDePasse &&
-                validateAddress(clientData.Adresse)
+                clientData.MotDePasse
             );
         }
 
         // Logique pour créer un nouvel utilisateur
-        if (!validateClientData(clientData)) {
-            return res.status(400).json({error: 'Les données du client ou de son adresse sont incomplètes.'});
+        if (!validateClientData(req.body)) {
+            return res.status(400).json({error: 'Les données du client sont incomplètes.'});
         }
-        // Vérifier si l'email existe déjà
 
+        // Vérifier si l'email existe déjà
         const existingUser = await prisma.client.findUnique({
             where: {
                 AddresseMail: email
@@ -53,6 +39,7 @@ exports.createUser = async (req, res) => {
         if (existingUser) {
             return res.status(400).json({error: "Cet email est déjà utilisé. Veuillez en choisir un autre."});
         }
+
         // Hachage du mot de passe
         const hashedPassword = await bcrypt.hash(motDePasse, saltRounds);
 
@@ -60,7 +47,7 @@ exports.createUser = async (req, res) => {
         const date = new Date();
         const anciennete = `${date.getDate().toString().padStart(2, '0')}/${(date.getMonth() + 1).toString().padStart(2, '0')}/${date.getFullYear()}`;
 
-// Création de l'utilisateur dans la base de données avec Prisma
+        // Création de l'utilisateur dans la base de données avec Prisma
         const newUser = await prisma.client.create({
             data: {
                 Nom: nom,
@@ -70,29 +57,18 @@ exports.createUser = async (req, res) => {
                 DateDeNaissance: dateDeNaissance,
                 NumeroDeTelephone: numeroDeTelephone,
                 Anciennete: anciennete,
-                role: 1
-            }
-
-        });
-        // Réponse de succès avec le nouvel utilisateur créé
-        // Créer l'adresse associée au client dans la base de données avec Prisma
-        const newAddress = await prisma.adresse.create({
-            data: {
-                ...adresse,
-                IdClient: newUser.IdClient
+                Adresse: adresse // Ajoute l'adresse si elle est fournie
             }
         });
 
         res.status(201).json("Nouvel utilisateur créé");
 
-    } catch
-        (error) {
+    } catch (error) {
         // Gestion des erreurs
-        console.error("Erreur lors de la creation d'un nouvel utilisateur:", error);
+        console.error("Erreur lors de la création d'un nouvel utilisateur:", error);
         res.status(500).json({error: 'Internal Server Error'});
     }
-}
-;
+};
 
 exports.getUserByName = async (req, res) => {
     try {
