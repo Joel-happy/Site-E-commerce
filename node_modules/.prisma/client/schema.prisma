@@ -8,7 +8,7 @@ datasource db {
 }
 
 model adresse {
-  IdAdresse            Int    @id
+  IdAdresse            Int    @id @default(autoincrement())
   AdresseDeFacturation String @db.VarChar(30)
   AdresseDeLivraison   String @db.VarChar(30)
   NomDuDestinataire    String @db.VarChar(50)
@@ -17,7 +17,7 @@ model adresse {
   NumeroDeTelephone    String @db.VarChar(16)
   CodePostal           String @db.VarChar(5)
   Pays                 String @db.VarChar(50)
-  IdClient             Int
+  IdClient             Int?
 
   @@index([IdClient], map: "IdClient")
 }
@@ -39,24 +39,21 @@ model client {
   DateDeNaissance   String? @db.Text
   NumeroDeTelephone String  @unique @db.VarChar(10)
   Anciennete        String? @db.Text
-  role              Int
 }
 
 model commande {
-  IdCommandes        Int      @id
+  IdCommandes        Int      @id @default(autoincrement())
   DatedeCommande     DateTime @db.DateTime(0)
   StatusDeLaCommande String   @db.VarChar(15)
   IdAdresse          Int
   IdClient           Int
-  motos              MotosSurCommande[]
 
   @@index([IdAdresse], map: "IdAdresse")
   @@index([IdClient], map: "IdClient")
 }
 
-
 model facture {
-  IdFactures        Int      @id
+  IdFactures        Int      @id @default(autoincrement())
   DatedeFacturation DateTime @db.DateTime(0)
   MontantTotal      Decimal  @db.Decimal(10, 2)
   IdClient          Int
@@ -73,7 +70,7 @@ model inclut {
 }
 
 model methodedepaiement {
-  IdPaiement             Int    @id
+  IdPaiement             Int    @id @default(autoincrement())
   TypePaiement           String @db.VarChar(20)
   InformationsDePaiement String @db.VarChar(100)
 }
@@ -86,20 +83,10 @@ model motos {
   DescriptionDuProduit String  @db.VarChar(200)
   Prix                 Decimal @db.Decimal(10, 2)
   Stock                Int
-  commandes              MotosSurCommande[]
-}
-
-model MotosSurCommande {
-  commande   commande  @relation(fields: [commandeId], references: [IdCommandes])
-  commandeId Int       // champ scalaire de relation (utilisé dans l'attribut `@relation` ci-dessus)
-  moto       motos    @relation(fields: [motoId], references: [IdMoto])
-  motoId     Int       // champ scalaire de relation (utilisé dans l'attribut `@relation` ci-dessus)
-
-  @@id([commandeId, motoId])
 }
 
 model panier {
-  IdPanier Int    @id
+  IdPanier Int    @id @default(autoincrement())
   Quantite BigInt
   IdClient Int
 
@@ -112,4 +99,12 @@ model utilise {
 
   @@id([IdPaiement, IdClient])
   @@index([IdClient], map: "IdClient")
+}
+
+model motossurcommande {
+  commandeId Int
+  motoId     Int
+
+  @@id([commandeId, motoId])
+  @@index([motoId], map: "MotosSurCommande_motoId_fkey")
 }
