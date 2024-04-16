@@ -1,9 +1,8 @@
 # Y'Cross - Site de Vente de Motocross
 
-![image](https://github.com/Joel-happy/Y-Cross/assets/112949717/078eb266-a282-4345-b413-e3e9a25ffa0d)
-
 ## Introduction
 Y'Cross est un projet développé dans le cadre du Ydays par Sajed et Joel, deux étudiants en B2 Informatique. Ce projet consiste en la création d'un site de vente de motocross en utilisant les technologies HTML, CSS et JavaScript. Joel est responsable du développement du backend tandis que Sajed se concentre sur le frontend.
+![image](https://github.com/Joel-happy/Y-Cross/assets/112949717/078eb266-a282-4345-b413-e3e9a25ffa0d)
 
 ## Fonctionnalités
 Affichage des produits de motocross disponibles à la vente.
