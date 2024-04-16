@@ -19,6 +19,14 @@ HTML
 CSS
 JavaScript
 
+- Trello - Utilisé pour la gestion de projet et le suivi des tâches.
+![image](https://github.com/Joel-happy/Y-Cross/assets/112949717/e268155e-1b49-4d04-9843-482ffeef283d)
+https://trello.com/invite/b/3WOkGMMP/ATTI706eeee725a23d42cc9b47586aedfcac3E7567E1/site-e-commerce
+
+- Diaporama - Utilisé pour créer et partager des présentations.
+
+- Discord - Utilisé pour maintenir une communication hebdomadaire entre les membres de l'équipe.
+
 - Maquettes
 Les maquettes du site ont été réalisées par Sajed et peuvent être consultées dans le dossier maquettes dans le dossier assets.
 
